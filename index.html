@@ -320,6 +320,69 @@
     letter-spacing: 1px;
   }
 
+  /* ===== SALAMI BUTTON ===== */
+  .salami-btn-wrapper {
+    margin-top: 20px;
+    animation: fadeUp 1s ease 1s both;
+  }
+
+  .salami-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(13,110,110,0.18);
+    border: 1px solid rgba(20,165,165,0.45);
+    border-radius: 50px;
+    padding: 12px 28px;
+    color: var(--teal-light);
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+  .salami-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(20,165,165,0.15) 50%, transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+  }
+
+  .salami-btn:hover::before {
+    transform: translateX(100%);
+  }
+
+  .salami-btn:hover {
+    border-color: var(--teal-light);
+    color: #fff;
+    background: rgba(13,110,110,0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(13,110,110,0.3);
+  }
+
+  .salami-btn:active { transform: translateY(0); }
+
+  .salami-pulse {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--teal-light);
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+  }
+
   /* ===== MESSAGE PAGE ===== */
   #messagePage {
     flex-direction: column;
@@ -465,6 +528,240 @@
     transform: translateY(-2px);
   }
 
+  /* ===== SALAMI PAGE ===== */
+  #salamiPage {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .salami-container {
+    max-width: 480px;
+    width: 100%;
+    animation: scaleIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  .salami-header-emoji {
+    color: gold;
+    font-size: 52px;
+    margin-bottom: 16px;
+    display: block;
+    
+  }
+
+  .salami-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 7vw, 44px);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--teal-light));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s infinite;
+    margin-bottom: 6px;
+  }
+
+  .salami-subtitle {
+    font-family: 'Amiri', serif;
+    font-size: clamp(16px, 3.5vw, 24px);
+    color: var(--gold);
+    margin-bottom: 28px;
+    opacity: 0.85;
+  }
+
+  .salami-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(20,165,165,0.3);
+    border-radius: 24px;
+    padding: 36px 28px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .salami-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(20,165,165,0.07), transparent 60%);
+    pointer-events: none;
+  }
+
+  .salami-card-prompt {
+    font-size: 13px;
+    color: rgba(20,165,165,0.8);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .phone-input-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .phone-prefix {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--teal-light);
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .phone-input {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(20,165,165,0.35);
+    border-radius: 14px;
+    padding: 18px 18px 18px 52px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--cream);
+    outline: none;
+    text-align: left;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    caret-color: var(--teal-light);
+  }
+
+  .phone-input::placeholder {
+    color: rgba(255,255,255,0.2);
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: 400;
+  }
+
+  .phone-input:focus {
+    border-color: rgba(20,165,165,0.7);
+    background: rgba(255,255,255,0.09);
+    box-shadow: 0 0 0 4px rgba(20,165,165,0.1), 0 0 20px rgba(20,165,165,0.15);
+  }
+
+  .continue-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--teal), var(--teal-light));
+    border: none;
+    border-radius: 14px;
+    padding: 18px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(13,110,110,0.4);
+  }
+
+  .continue-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+  }
+
+  .continue-btn:hover::before { transform: translateX(100%); }
+  .continue-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(13,110,110,0.55);
+  }
+  .continue-btn:active { transform: translateY(0); }
+
+  .phone-error-msg {
+    color: #FF8A80;
+    font-size: 13px;
+    margin-top: 12px;
+    min-height: 20px;
+  }
+
+  /* ===== VIDEO PAGE ===== */
+  #videoPage {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 16px;
+  }
+
+  .video-container {
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+    animation: scaleIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  .video-greeting {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 4vw, 28px);
+    color: var(--gold-light);
+    margin-bottom: 6px;
+    font-style: italic;
+  }
+
+  .video-name-display {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 9vw, 60px);
+    font-weight: 700;
+    background: linear-gradient(135deg, #FFF5CC, var(--gold-light), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s infinite;
+    background-size: 200% 200%;
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
+
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(212,175,55,0.3);
+    box-shadow: 0 24px 70px rgba(0,0,0,0.6), 0 0 40px rgba(212,175,55,0.1);
+    background: #000;
+  }
+
+  .video-wrapper video {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+  }
+
+  .video-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    background: transparent;
+    border: 1px solid rgba(212,175,55,0.3);
+    border-radius: 50px;
+    padding: 12px 28px;
+    color: rgba(245,215,110,0.7);
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+  .video-back-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(212,175,55,0.08);
+    transform: translateY(-2px);
+  }
+
   /* ===== ANIMATIONS ===== */
   @keyframes fadeDown {
     from { opacity: 0; transform: translateY(-30px); }
@@ -519,6 +816,9 @@
     .mosque-bg { height: 130px; }
 
     .divider-line { width: 50px; }
+
+    .salami-card { padding: 24px 16px; }
+    .phone-input { font-size: 16px !important; }
   }
 
   @media (max-width: 360px) {
@@ -531,7 +831,7 @@
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
   }
-  input[type="text"] {
+  input[type="text"], input[type="tel"] {
     font-size: 16px !important; /* prevents iOS auto-zoom */
   }
 </style>
@@ -550,13 +850,11 @@
         <stop offset="55%" stop-color="#F5D76E"/>
         <stop offset="100%" stop-color="#D4AF37"/>
       </radialGradient>
-      <!-- Mask: white = show, black = hide. Big white circle, then black offset circle cuts the crescent -->
       <mask id="crescentMask">
         <circle cx="40" cy="40" r="36" fill="white"/>
         <circle cx="54" cy="32" r="30" fill="black"/>
       </mask>
     </defs>
-    <!-- Gold circle, masked into crescent shape -->
     <circle cx="40" cy="40" r="36" fill="url(#moonGrad)" mask="url(#crescentMask)"/>
   </svg>
 </div>
@@ -564,12 +862,10 @@
 <!-- MOSQUE SVG SILHOUETTE -->
 <svg class="mosque-bg" viewBox="0 0 1440 220" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
   <path d="M0,220 L0,160 L60,160 L60,140 L80,140 L80,100 Q80,80 100,80 Q120,80 120,100 L120,140 L140,140 L140,160 L200,160 L200,180 L240,180 L240,120 Q240,60 300,40 Q330,30 360,40 L360,10 Q360,0 370,0 L390,0 Q400,0 400,10 L400,25 Q440,10 480,25 Q520,10 560,25 L560,10 Q560,0 570,0 L590,0 Q600,0 600,10 L600,40 Q630,30 660,40 Q720,60 720,120 L720,180 L760,180 L760,160 L820,160 L820,140 L840,140 L840,100 Q840,80 860,80 Q880,80 880,100 L880,140 L900,140 L900,160 L960,160 L960,180 L1000,180 L1000,120 Q1000,60 1060,40 Q1090,30 1120,40 L1120,10 Q1120,0 1130,0 L1150,0 Q1160,0 1160,10 L1160,25 Q1200,10 1240,25 Q1280,10 1320,25 L1320,10 Q1320,0 1330,0 L1350,0 Q1360,0 1360,10 L1360,40 Q1390,30 1420,40 Q1440,50 1440,80 L1440,220 Z" fill="rgba(212,175,55,0.5)"/>
-  <!-- minarets -->
   <rect x="355" y="0" width="10" height="40" rx="5" fill="rgba(212,175,55,0.6)"/>
   <rect x="595" y="0" width="10" height="40" rx="5" fill="rgba(212,175,55,0.6)"/>
   <rect x="1115" y="0" width="10" height="40" rx="5" fill="rgba(212,175,55,0.6)"/>
   <rect x="1355" y="0" width="10" height="40" rx="5" fill="rgba(212,175,55,0.6)"/>
-  <!-- dome top ornaments -->
   <circle cx="360" cy="0" r="5" fill="var(--gold)"/>
   <circle cx="600" cy="0" r="5" fill="var(--gold)"/>
   <circle cx="1120" cy="0" r="5" fill="var(--gold)"/>
@@ -613,6 +909,14 @@
       <div class="error-msg" id="errorMsg"></div>
       <div class="hint-text">Developed by himayet680</div>
     </div>
+
+    <!-- SALAMI BUTTON -->
+    <div class="salami-btn-wrapper">
+      <button class="salami-btn" onclick="goToSalamiPage()">
+        <span class="salami-pulse"></span>
+        🎁 Click here to get more salami
+      </button>
+    </div>
   </div>
 </div>
 
@@ -648,65 +952,129 @@
   </div>
 </div>
 
+<!-- ===== SALAMI PAGE ===== -->
+<div class="page hidden" id="salamiPage">
+  <div class="salami-container">
+    <span class="salami-header-emoji">عيد مبارك</span>
+    <div class="salami-title">Eid Mubarak!</div>
+    <div class="salami-subtitle">আরো সালামি লাগবে?</div>
+
+    <div class="salami-card">
+      <div class="salami-card-prompt">✦ Give your BKash number for take more Salami from me ✦</div>
+      <div class="phone-input-wrapper">
+        <span class="phone-prefix">+88</span>
+        <input
+          type="tel"
+          class="phone-input"
+          id="phoneInput"
+          placeholder="01XXXXXXXXX"
+          maxlength="11"
+          autocomplete="off"
+          inputmode="numeric"
+          pattern="[0-9]*"
+        />
+      </div>
+      <button class="continue-btn" onclick="continueToVideo()">
+        Continue &rarr;
+      </button>
+      <div class="phone-error-msg" id="phoneErrorMsg"></div>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <button class="back-btn" onclick="goBackFromSalami()">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== VIDEO PAGE ===== -->
+<div class="page hidden" id="videoPage">
+  <div class="video-container">
+    <div class="video-greeting">🌙 ঈদ মোবারক!</div>
+    <div class="video-name-display" id="videoPhoneDisplay"></div>
+
+    <div class="video-wrapper">
+      <!-- 
+        Replace the src below with your actual video URL or file path.
+        The video will autoplay, muted by default (required by browsers),
+        with sound unmuted via JS after interaction policy allows.
+      -->
+      <video
+        id="salamiVideo"
+        playsinline
+        autoplay
+        muted
+        controls
+        style="max-height: 75vh;"
+      >
+        <source src="fun.mp4" type="video/mp4">
+        <!-- Fallback YouTube embed if no local video -->
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <button class="video-back-btn" onclick="goBackFromVideo()">← Back</button>
+  </div>
+</div>
+
 <script>
   // ===== PERSONALIZED MESSAGES =====
   const messages = {
     "ayman": {
       display: "Ayman",
       msg: `<span class="msg-highlight">Dear Ayman,</span><br><br>
-      Eid Mubarak, my dear! 🌙 দোয়া করি যেন তুমি বড় হয়ে মানুষের মতো মানুষ হও। উজ্জ্বল ভবিষ্যৎ কামনা করি তোমার। আর কোনো দিন আফসোস করবে না যে, তোমার বড় ভাই হিমেল মারা গেছে, যার কারনে তুমি একা হয়ে গেছো। তোমার বড় ভাইয়া এখনো বেঁচে আছে। জীবনের যেকোনো সমস্যায় আমি তোমার সাথে আছি। ভালো করে পড়ালেখা করে তোমার আব্বু-আম্মুর গর্ব হও — <span class="msg-highlight">Eid Mubarak! ✨</span>`
+      Eid Mubarak, my dear! 🌙 দোয়া করি যেন তুমি বড় হয়ে মানুষের মতো মানুষ হও। উজ্জ্বল ভবিষ্যৎ কামনা করি তোমার। আর কোনো দিন আফসোস করবে না যে, তোমার বড় ভাই হিমেল মারা গেছে, যার কারনে তুমি একা হয়ে গেছো। তোমার বড় ভাইয়া এখনো বেঁচে আছে। জীবনের যেকোনো সমস্যায় আমি তোমার সাথে আছি। ভালো করে পড়ালেখা করে তোমার আব্বু-আম্মুর গর্ব হও — <span class="msg-highlight">Eid Mubarak! ✨</span>`
     },
     "rafi": {
       display: "Rafi",
       msg: `<span class="msg-highlight">Dear Rafi,</span><br><br>
-      Eid Mubarak! 🌙 আপাতত দোয়াটা শুধু তোর পরীক্ষা ভালোর জন্য আর সুস্থ থাকার জন্য করতেছি। উজ্জ্বল ভবিষ্যৎ কামনা করি তোর। পরীক্ষায় A+ বা গোল্ডেন আনতে হবে বলে কথা নাই। গোল্ডেন পাওয়া ছেলে যে জীবনে আহামরি কিছু করে উল্টাই ফেলে তা না। কিন্তু কঠোর পরিশ্রম করে চেষ্টা চালাই যাবি, রেজাল্ট যাই আসুক না কেন তোর চেষ্টাতে যেন কোনো কমতি না থাকে। আর সবসময় হাসিখুশি থাকিস। যেকোনো সমস্যাতে সাহায্য লাগলে বলবি, আপ্রান চেষ্টা করবো সাহায্য করার। আর আমাকে বার বার জিজ্ঞাসা করবি না যে ভাবি কেমন আছে? কারন কাটা গায়ে নুন চিটাইলে মেজাজ গরম হয়ে যায়। আর আপাতত তোর কোনো ভাবি নাই। ২০২৯ সালে দেখা করিস, ইনশাআল্লাহ তখন তোর ভাবি কেমন আছে তার জবাব দিতে পারবো - <span class="msg-highlight">Eid Mubarak! 🌟</span>`
+      Eid Mubarak! 🌙 আপাতত দোয়াটা শুধু তোর পরীক্ষা ভালোর জন্য আর সুস্থ থাকার জন্য করতেছি। উজ্জ্বল ভবিষ্যৎ কামনা করি তোর। পরীক্ষায় A+ বা গোল্ডেন আনতে হবে বলে কথা নাই। গোল্ডেন পাওয়া ছেলে যে জীবনে আহামরি কিছু করে উল্টাই ফেলে তা না। কিন্তু কঠোর পরিশ্রম করে চেষ্টা চালাই যাবি, রেজাল্ট যাই আসুক না কেন তোর চেষ্টাতে যেন কোনো কমতি না থাকে। আর সবসময় হাসিখুশি থাকিস। যেকোনো সমস্যাতে সাহায্য লাগলে বলবি, আপ্রান চেষ্টা করবো সাহায্য করার। আর আমাকে বার বার জিজ্ঞাসা করবি না যে ভাবি কেমন আছে? কারন কাটা গায়ে নুন চিটাইলে মেজাজ গরম হয়ে যায়। আর আপাতত তোর কোনো ভাবি নাই। ২০২৯ সালে দেখা করিস, ইনশাআল্লাহ তখন তোর ভাবি কেমন আছে তার জবাব দিতে পারবো - <span class="msg-highlight">Eid Mubarak! 🌟</span>`
     },
     "riyad": {
       display: "Riyad",
       msg: `<span class="msg-highlight">Dear Riyad,</span><br><br>
-      Eid Mubarak! 🌙 দুষ্টামি কম করবা। পড়ালেখা করে মানুষের মতো মানুষ হও। উজ্জ্বল ভবিষ্যৎ কামনা করি তোমার। আর আন্টির কথা মতো চলবা। সামনের বছর পুরো তারাবি পড়বা। মাঝখানে থেকে ছাড়বা না - <span class="msg-highlight">Eid Mubarak! 🌺</span>`
+      Eid Mubarak! 🌙 দুষ্টামি কম করবা। পড়ালেখা করে মানুষের মতো মানুষ হও। উজ্জ্বল ভবিষ্যৎ কামনা করি তোমার। আর আন্টির কথা মতো চলবা। সামনের বছর পুরো তারাবি পড়বা। মাঝখানে থেকে ছাড়বা না - <span class="msg-highlight">Eid Mubarak! 🌺</span>`
     },
     "maisha": {
       display: "Maisha",
       msg: `<span class="msg-highlight">Dear Maisha,</span><br><br>
-      Eid Mubarak! 🌙 ভালো মতো পড়ালেখা করো। হাসিখুশি থাকো। উজ্জ্বল ভবিষ্যৎ কামনা করি তোমার। আর রায়ানকে দুষ্টামি করলে মারবে শুধু। কথা বার্তা ছাড়া মারবে। দুষ্টামি করলেই মাইর দিবে - ✨</span>`
+      Eid Mubarak! 🌙 ভালো মতো পড়ালেখা করো। হাসিখুশি থাকো। উজ্জ্বল ভবিষ্যৎ কামনা করি তোমার। আর রায়ানকে দুষ্টামি করলে মারবে শুধু। কথা বার্তা ছাড়া মারবে। দুষ্টামি করলেই মাইর দিবে - ✨</span>`
     },
     "oishi": {
       display: "Oishi",
       msg: `<span class="msg-highlight">Dear Oishi,</span><br><br>
-      Eid Mubarak! 🌙 ভালো মতো পড়ালেখা করো। পড়া আর বাড়ির কাজ ঠিকমতো দিলে মাইর খাবে না৷ না দিলে প্রচুর মাইর খাবে। দুষ্টামি কম করবা। পরিবারের গর্ব হবা। উজ্জ্বল ভবিষ্যৎ কামনা করি তোমার - <span class="msg-highlight">Eid Mubarak! 🌸</span>`
+      Eid Mubarak! 🌙 ভালো মতো পড়ালেখা করো। পড়া আর বাড়ির কাজ ঠিকমতো দিলে মাইর খাবে না৷ না দিলে প্রচুর মাইর খাবে। দুষ্টামি কম করবা। পরিবারের গর্ব হবা। উজ্জ্বল ভবিষ্যৎ কামনা করি তোমার - <span class="msg-highlight">Eid Mubarak! 🌸</span>`
     },
     "fatima": {
       display: "Fatima",
       msg: `<span class="msg-highlight">Dear Fatima,</span><br><br>
-      Eid Mubarak! 🌙 ফাতিমা বুড়ি, খুব তাড়াতাড়ি বড় হও। স্কুলে যাবা, মানুষের মতো মানুষ হবা। উজ্জ্বল ভবিষ্যৎ কামনা করি তোমার। আর আমাকে সামি ডাকবে না বড় ভাইয়া ডাকবে যে — 
+      Eid Mubarak! 🌙 ফাতিমা বুড়ি, খুব তাড়াতাড়ি বড় হও। স্কুলে যাবা, মানুষের মতো মানুষ হবা। উজ্জ্বল ভবিষ্যৎ কামনা করি তোমার। আর আমাকে সামি ডাকবে না বড় ভাইয়া ডাকবে যে — 
       <span class="msg-highlight">Eid Mubarak! 🤍</span>`
     },
     "rayan": {
       display: "Rayan",
       msg: `<span class="msg-highlight">Dear Rayan,</span><br><br>
-      Eid Mubarak! 🌙 তোরে মাইর ছাড়া কিছু হবে না। তোরে আরও একটু বড় হলে হোস্টেল দিয়ে দিবো। তারপর সারা দিন মাইর এর উপর থাকবি। তারপর দেখা যাবে তোর মাথা বাড়ি কেমনে দেস তুই। খবর আছে তোর। যাক দোয়া করি ভালো হয়ে যাবি। উজ্জ্বল ভবিষ্যৎ কামনা করি তোমার। <span class="msg-highlight">Eid Mubarak! ⭐</span>`
+      Eid Mubarak! 🌙 তোরে মাইর ছাড়া কিছু হবে না। তোরে আরও একটু বড় হলে হোস্টেল দিয়ে দিবো। তারপর সারা দিন মাইর এর উপর থাকবি। তারপর দেখা যাবে তোর মাথা বাড়ি কেমনে দেস তুই। খবর আছে তোর। যাক দোয়া করি ভালো হয়ে যাবি। উজ্জ্বল ভবিষ্যৎ কামনা করি তোমার। <span class="msg-highlight">Eid Mubarak! ⭐</span>`
     },
     "marwan": {
       display: "Marwan",
       msg: `<span class="msg-highlight">Dear Marwan,</span><br><br>
-      Eid Mubarak! 🌙 কিউট ভাই আমার, সব সময় হাসিখুশি থেকো। দোয়া করি তোমার জন্য। সুস্থ থেকো সবসময়। উজ্জ্বল ভবিষ্যৎ কামনা করি তোমার। <span class="msg-highlight">Eid Mubarak! 🌙</span>`
+      Eid Mubarak! 🌙 কিউট ভাই আমার, সব সময় হাসিখুশি থেকো। দোয়া করি তোমার জন্য। সুস্থ থেকো সবসময়। উজ্জ্বল ভবিষ্যৎ কামনা করি তোমার। <span class="msg-highlight">Eid Mubarak! 🌙</span>`
     },
     "mili": {
       display: "Mili",
       msg: `<span class="msg-highlight">Dear Mili,</span><br><br>
-      Eid Mubarak! 🌙 দোয়া করি সবসময় সুস্থ আর হাসি খুশি থাকিস। উজ্জ্বল ভবিষ্যৎ কামনা করি তোর। সবসময় বলি কথাটা এখনও বলতেছি, জীবনে যেই পর্যায়ে বা যেই জায়গায় বা যেই পরিস্থিতিতে থাকোস না কেন যেকোন সমস্যা তে আমি পাবি। তোর সুখেও পাবি, তোর দুঃখেও পাবি। কখনো অন্যায় সহ্য করবি না, কারন তোর ভাই আছে তোর সাহসের জন্য। আমৃত্যু তোর পাশে আছি। মানুষের মতো মানুষ হও। পরিবারের গর্ব হও। এমন কোনো কাজ করবি না যার কারনে তোর প্রতি সব ভালোবাসা আর আদর ঘৃণাতে পরিণত হই - ✨</span>`
+      Eid Mubarak! 🌙 দোয়া করি সবসময় সুস্থ আর হাসি খুশি থাকিস। উজ্জ্বল ভবিষ্যৎ কামনা করি তোর। সবসময় বলি কথাটা এখনও বলতেছি, জীবনে যেই পর্যায়ে বা যেই জায়গায় বা যেই পরিস্থিতিতে থাকোস না কেন যেকোন সমস্যা তে আমি পাবি। তোর সুখেও পাবি, তোর দুঃখেও পাবি। কখনো অন্যায় সহ্য করবি না, কারন তোর ভাই আছে তোর সাহসের জন্য। আমৃত্যু তোর পাশে আছি। মানুষের মতো মানুষ হও। পরিবারের গর্ব হও। এমন কোনো কাজ করবি না যার কারনে তোর প্রতি সব ভালোবাসা আর আদর ঘৃণাতে পরিণত হই - ✨</span>`
     },
     "sahil": {
       display: "Sahil",
       msg: `<span class="msg-highlight">Dear Sahil,</span><br><br>
-      Eid Mubarak! 🌙 দোয়া করি মামা তোমাকে। পড়ালেখা করে মানুষের মতো মানুষ হও। উজ্জ্বল ভবিষ্যৎ কামনা করি তোমার। আপুর কথা মতো চলবা এবং তোমার ভাইকেও ভালো শিক্ষা দিবা — 
+      Eid Mubarak! 🌙 দোয়া করি মামা তোমাকে। পড়ালেখা করে মানুষের মতো মানুষ হও। উজ্জ্বল ভবিষ্যৎ কামনা করি তোমার। আপুর কথা মতো চলবা এবং তোমার ভাইকেও ভালো শিক্ষা দিবা — 
       <span class="msg-highlight">Eid Mubarak! 🌊</span>`
     },
     "falak": {
       display: "Falak",
       msg: `<span class="msg-highlight">Dear Falak,</span><br><br>
-      Eid Mubarak! 🌙 ফালাক বুড়ি, রাগ কমাও। নাইলে মাইর দিবো তোমাকে। দুষ্টামি করবা না। বড় হও দ্রুত। উজ্জ্বল ভবিষ্যৎ কামনা করি তোমার। ভালো থাকিও। 
+      Eid Mubarak! 🌙 ফালাক বুড়ি, রাগ কমাও। নাইলে মাইর দিবো তোমাকে। দুষ্টামি করবা না। বড় হও দ্রুত। উজ্জ্বল ভবিষ্যৎ কামনা করি তোমার। ভালো থাকিও। 
       <span class="msg-highlight">Eid Mubarak! 🌌</span>`
     }
   };
@@ -748,11 +1116,8 @@
     document.getElementById('searchPage').classList.add('hidden');
     const msgPage = document.getElementById('messagePage');
     msgPage.classList.remove('hidden');
-
     document.getElementById('msgName').textContent = data.display;
     document.getElementById('msgText').innerHTML = data.msg;
-
-    // Trigger confetti
     launchConfetti();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -765,10 +1130,98 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Enter key support
   document.getElementById('nameInput').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') searchName();
   });
+
+  // ===== SALAMI PAGE =====
+  function goToSalamiPage() {
+    document.getElementById('searchPage').classList.add('hidden');
+    document.getElementById('salamiPage').classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function goBackFromSalami() {
+    document.getElementById('salamiPage').classList.add('hidden');
+    document.getElementById('searchPage').classList.remove('hidden');
+    document.getElementById('phoneInput').value = '';
+    document.getElementById('phoneErrorMsg').textContent = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Only allow digits in phone input
+  document.getElementById('phoneInput').addEventListener('input', function() {
+    this.value = this.value.replace(/\D/g, '');
+  });
+
+  document.getElementById('phoneInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') continueToVideo();
+  });
+
+  function continueToVideo() {
+    const phone = document.getElementById('phoneInput').value.trim();
+    const errEl = document.getElementById('phoneErrorMsg');
+
+    // Validate: 11 digits, starts with 01 (Bangladeshi mobile)
+    const bdPhoneRegex = /^01[3-9]\d{8}$/;
+
+    if (!phone) {
+      errEl.textContent = 'মোবাইল নম্বর দিন 📱';
+      return;
+    }
+    if (phone.length !== 11 || !bdPhoneRegex.test(phone)) {
+      errEl.textContent = 'সঠিক ১১ সংখ্যার বাংলাদেশি নম্বর দিন (01XXXXXXXXX)';
+      shakePhoneInput();
+      return;
+    }
+
+    errEl.textContent = '';
+    showVideoPage(phone);
+  }
+
+  function shakePhoneInput() {
+    const input = document.getElementById('phoneInput');
+    input.style.borderColor = '#FF8A80';
+    setTimeout(() => { input.style.borderColor = ''; }, 1500);
+  }
+
+  function showVideoPage(phone) {
+    document.getElementById('salamiPage').classList.add('hidden');
+    document.getElementById('videoPage').classList.remove('hidden');
+
+    // Show masked phone number as greeting
+    const masked = phone.slice(0, 4) + '***' + phone.slice(7);
+    document.getElementById('videoPhoneDisplay').textContent = masked;
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Auto-play the video
+    const video = document.getElementById('salamiVideo');
+    video.currentTime = 0;
+
+    // Try to play with sound; if blocked by browser policy, play muted
+    video.muted = false;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay with sound blocked — play muted instead
+        video.muted = true;
+        video.play().catch(() => {});
+      });
+    }
+
+    launchConfetti();
+  }
+
+  function goBackFromVideo() {
+    const video = document.getElementById('salamiVideo');
+    video.pause();
+    video.currentTime = 0;
+    document.getElementById('videoPage').classList.add('hidden');
+    document.getElementById('salamiPage').classList.remove('hidden');
+    document.getElementById('phoneInput').value = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   // ===== CONFETTI =====
   function launchConfetti() {
@@ -835,13 +1288,8 @@
     setTimeout(() => lantern.remove(), (dur + 25) * 1000);
   }
 
-  // Spawn lanterns periodically
   for (let i = 0; i < 6; i++) createLantern();
   setInterval(createLantern, 4000);
 </script>
 </body>
 </html>
-
-
-
-
